@@ -48,6 +48,7 @@ export class PermissionsController {
           example: 'create|update|manage|delete|read',
           description: 'Give permission type',
         },
+
         role: {
           type: 'integer',
           example: '1 for User,2 for Admin , 3 for Manager',
@@ -62,8 +63,8 @@ export class PermissionsController {
       },
     },
   })
-  // @UseGuards(PermissionsGuard)
-  // @CheckPermissions([PermissionAction.CREATE, 'Permission'])
+  @UseGuards(PermissionsGuard)
+  @CheckPermissions([PermissionAction.CREATE, 'Permission'])
   create(@Body() createPermissionDto: CreatePermissionDto) {
     return this.permissionServ.create(createPermissionDto);
   }

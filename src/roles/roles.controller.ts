@@ -37,8 +37,8 @@ export class RolesController {
     type: [ResponseRolesDto],
   })
   @Get()
-  // @UseGuards(PermissionsGuard)
-  // @CheckPermissions([PermissionAction.READ, 'Roles'])
+  @UseGuards(PermissionsGuard)
+  @CheckPermissions([PermissionAction.READ, 'Roles'])
   findAll() {
     try {
       return this.rolesServ.findAll();

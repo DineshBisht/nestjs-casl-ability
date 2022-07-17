@@ -34,8 +34,8 @@ export class ObjectsController {
   }
 
   @Post()
-  // @UseGuards(PermissionsGuard)
-  // @CheckPermissions([PermissionAction.CREATE, 'Resource'])
+  @UseGuards(PermissionsGuard)
+  @CheckPermissions([PermissionAction.CREATE, 'Resource'])
   @ApiBody({
     schema: {
       type: 'object',
@@ -66,6 +66,6 @@ export class ObjectsController {
   @UseGuards(PermissionsGuard)
   @CheckPermissions([PermissionAction.DELETE, 'Resource'])
   async delete(@Param('resourceId') resourceId: number) {
-    //return await this.objServ.delete(resourceId);
+    return await this.objServ.delete(resourceId);
   }
 }
