@@ -1,0 +1,17 @@
+### find all permissions
+GET http://localhost:3000/permissions/
+
+### create permission
+
+POST http://localhost:3000/permissions/
+Content-Type: application/json
+
+{
+  "action":"create",
+  "object":2,
+  "role":1
+}
+
+### delete permission
+
+DELETE http://localhost:3000/permissions/16

@@ -1,0 +1,9 @@
+### create Invioce
+
+POST http://localhost:3000/invoices/
+Content-Type: application/json
+
+{
+  "name":"Volkswogan car invoices",
+  "totalAmt":1500000
+}

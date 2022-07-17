@@ -1,0 +1,19 @@
+### List of roles
+GET http://localhost:3000/roles
+
+### create roles
+
+POST http://localhost:3000/roles
+Content-Type: application/json
+
+{
+  "name":"Manager"
+}
+
+### Update roles
+PATCH http://localhost:3000/roles/1
+Content-Type: application/json
+
+{
+  "name":"User"
+}
