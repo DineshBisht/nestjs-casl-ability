@@ -47,7 +47,6 @@ export class Permission {
       }
       // find placeholder "${}""
       const matches = /^\\${([a-zA-Z0-9]+)}$/.exec(rawValue);
-      console.log(matches);
 
       if (!matches) {
         parsedCondition[key] = rawValue;
@@ -62,7 +61,6 @@ export class Permission {
       // }
       parsedCondition[key] = variables;
     }
-    console.log(parsedCondition);
     return parsedCondition;
   }
 }

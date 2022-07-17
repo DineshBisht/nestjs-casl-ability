@@ -16,7 +16,6 @@ export class SerializeInterceptor implements NestInterceptor {
         const formatedData = plainToClass(this.dto, data, {
           excludeExtraneousValues: true,
         });
-        console.log(formatedData);
         return formatedData;
       }),
     );

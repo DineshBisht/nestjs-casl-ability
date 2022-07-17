@@ -29,14 +29,12 @@ export class UserController {
   ) {}
 
   @Get('/profile/:id')
-  @UseGuards(PermissionsGuard)
-  @CheckPermissions([PermissionAction.READ, 'User'])
   async getProfile(@Param('id') userId: string, @Req() request) {
     const ability = await this.abilityFactory.createForUser(request.user.id);
     const userInfo = await this.userService.findOne(+userId);
     if (!userInfo) throw new NotFoundException('User not found with this id');
-    const condition = new User(userInfo);
 
+    const condition = new User(userInfo);
     if (!ability.can(PermissionAction.READ, condition)) {
       throw new ForbiddenException(
         'You dont have access to read other user profile',

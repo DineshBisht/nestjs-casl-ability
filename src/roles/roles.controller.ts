@@ -46,12 +46,15 @@ export class RolesController {
       throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
+  @UseGuards(PermissionsGuard)
+  @CheckPermissions([PermissionAction.CREATE, 'Roles'])
   @Post()
   create(@Body() createRoleDto: CreateRolesDto) {
     return this.rolesServ.create(createRoleDto);
   }
 
+  @UseGuards(PermissionsGuard)
+  @CheckPermissions([PermissionAction.UPDATE, 'Roles'])
   @Patch(':roleId')
   async update(
     @Param('roleId') roleId: string,
