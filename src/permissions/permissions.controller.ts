@@ -62,8 +62,8 @@ export class PermissionsController {
       },
     },
   })
-  @UseGuards(PermissionsGuard)
-  @CheckPermissions([PermissionAction.CREATE, 'Permission'])
+  // @UseGuards(PermissionsGuard)
+  // @CheckPermissions([PermissionAction.CREATE, 'Permission'])
   create(@Body() createPermissionDto: CreatePermissionDto) {
     return this.permissionServ.create(createPermissionDto);
   }
