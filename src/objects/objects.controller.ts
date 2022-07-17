@@ -34,8 +34,8 @@ export class ObjectsController {
   }
 
   @Post()
-  @UseGuards(PermissionsGuard)
-  @CheckPermissions([PermissionAction.CREATE, 'Resource'])
+  // @UseGuards(PermissionsGuard)
+  // @CheckPermissions([PermissionAction.CREATE, 'Resource'])
   @ApiBody({
     schema: {
       type: 'object',
