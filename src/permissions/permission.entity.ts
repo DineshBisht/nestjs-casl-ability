@@ -61,7 +61,7 @@ export class Permission {
       // }
       parsedCondition[key] = variables;
     }
-    console.log(parsedCondition);
+    //console.log(parsedCondition);
     return parsedCondition;
   }
 }
