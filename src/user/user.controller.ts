@@ -7,6 +7,7 @@ import {
   UseGuards,
   Req,
   ForbiddenException,
+  NotFoundException,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { ApiBody, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
@@ -28,9 +29,12 @@ export class UserController {
   ) {}
 
   @Get('/profile/:id')
+  @UseGuards(PermissionsGuard)
+  @CheckPermissions([PermissionAction.READ, 'User'])
   async getProfile(@Param('id') userId: string, @Req() request) {
     const ability = await this.abilityFactory.createForUser(request.user.id);
     const userInfo = await this.userService.findOne(+userId);
+    if (!userInfo) throw new NotFoundException('User not found with this id');
     const condition = new User(userInfo);
 
     if (!ability.can(PermissionAction.READ, condition)) {
