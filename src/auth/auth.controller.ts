@@ -67,7 +67,7 @@ export class AuthController {
     },
   })
   async register(@Body() createUserDto: CreateUserDto) {
-    console.log('controller', createUserDto);
+    // console.log('controller', createUserDto);
     return await this.authSrv.register(createUserDto);
   }
 

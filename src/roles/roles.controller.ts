@@ -29,7 +29,7 @@ import { RolesService } from './roles.service';
 @ApiForbiddenResponse({
   description: 'If user not authorized show forbidden in response',
 })
-@UseGuards(JwtAuthenticationGuard)
+//@UseGuards(JwtAuthenticationGuard)
 export class RolesController {
   constructor(private rolesServ: RolesService) {}
   @ApiOkResponse({
