@@ -29,9 +29,9 @@ export class ObjectsService {
   }
 
   async delete(objectId: number) {
-    const record = await this.objRepo.findOne({ where: { id: objectId } });
-    if (!record)
-      throw new NotFoundException('Record not found with this resource id ');
-    return await this.objRepo.delete(record);
+    // const record = await this.objRepo.findOne({ where: { id: objectId } });
+    // if (!record)
+    //   throw new NotFoundException('Record not found with this resource id ');
+    // return await this.objRepo.delete(record);
   }
 }

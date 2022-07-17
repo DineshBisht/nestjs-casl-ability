@@ -66,6 +66,6 @@ export class ObjectsController {
   @UseGuards(PermissionsGuard)
   @CheckPermissions([PermissionAction.DELETE, 'Resource'])
   async delete(@Param('resourceId') resourceId: number) {
-    return await this.objServ.delete(resourceId);
+    //return await this.objServ.delete(resourceId);
   }
 }
