@@ -21,7 +21,7 @@ export type AppAbility = Ability<[PermissionAction, PermissionObjectType]>;
 export class AbilityFactory {
   constructor(private userService: UserService) {}
   async createForUser(user: User) {
-    console.log('user', user);
+    //console.log('user', user);
     const dbPermission = await this.userService.getUserPermission(user);
 
     const caslPermission: any = dbPermission.map((permission) => ({
@@ -30,7 +30,7 @@ export class AbilityFactory {
       conditions: { user: 3 },
     }));
 
-    console.log('caslpermission', caslPermission);
+    //  console.log('caslpermission', caslPermission);
     return new Ability<[PermissionAction, PermissionObjectType]>(
       caslPermission,
     );

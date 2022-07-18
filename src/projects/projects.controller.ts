@@ -93,6 +93,8 @@ export class ProjectsController {
     description: 'It will update existing project information',
     type: ProjectResponseDto,
   })
+  @UseGuards(PermissionsGuard)
+  @CheckPermissions([PermissionAction.UPDATE, 'Project'])
   async update(
     @Param('id') id: string,
     @Body() updateProjectDto: UpdateProjectDto,
